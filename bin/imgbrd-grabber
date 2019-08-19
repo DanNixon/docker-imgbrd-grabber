@@ -1,0 +1,11 @@
+#!/bin/sh
+
+XAUTH_AUTH_FILE=$(xauth info | grep 'Authority file' | awk '{split($0,a," "); print a[3]}')
+
+docker run \
+  --rm \
+  --env DISPLAY="$DISPLAY" \
+  --volume '/tmp/.X11-unix:/tmp/.X11-unix:ro' \
+  --volume "$XAUTH_AUTH_FILE:/root/.Xauthority:ro" \
+  --volume "$PWD:/root/Desktop/Grabber" \
+  dannixon/imgbrd-grabber:latest

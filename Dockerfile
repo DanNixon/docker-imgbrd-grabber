@@ -20,7 +20,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ARG VERSION='7.0.0'
+ARG VERSION='7.1.1'
 
 # See https://github.com/Bionus/imgbrd-grabber/wiki/Compilation#linux
 RUN curl \

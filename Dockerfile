@@ -36,7 +36,13 @@ RUN curl \
     cmake --build . -- -j `nproc` && \
     cd .. && \
     mv build/gui/Grabber* 'release/' && \
-    touch 'release/settings.ini' && \
-    rm -r '/tmp'
+    rm -r '/tmp' && \
+    mkdir '/data' && \
+    mkdir '/config' && \
+    touch '/config/settings.ini' && \
+    ln -s '/config/settings.ini' '/imgbrd-grabber/release/settings.ini'
+
+VOLUME '/data'
+VOLUME '/config'
 
 ENTRYPOINT 'imgbrd-grabber/release/Grabber'

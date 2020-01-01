@@ -39,4 +39,4 @@ RUN curl \
     touch 'release/settings.ini' && \
     rm -r '/tmp'
 
-CMD ['/imgbrd-grabber/release/Grabber']
+ENTRYPOINT 'imgbrd-grabber/release/Grabber'
